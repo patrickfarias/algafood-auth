@@ -1,0 +1,3 @@
+com/algaworks/algafood/auth/AuthApplication.class
+com/algaworks/algafood/auth/WebSecurityConfig.class
+com/algaworks/algafood/auth/AuthorizationServerConfig.class
