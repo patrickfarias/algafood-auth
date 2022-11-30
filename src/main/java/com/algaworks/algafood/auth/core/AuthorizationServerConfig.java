@@ -1,4 +1,4 @@
-package com.algaworks.algafood.auth;
+package com.algaworks.algafood.auth.core;
 
 import java.util.Arrays;
 
@@ -29,7 +29,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
-	
+
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients
@@ -69,6 +69,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 //		security.checkTokenAccess("isAuthenticated()");
 		security.checkTokenAccess("permitAll()")
+			.tokenKeyAccess("permitAll()")
 			.allowFormAuthenticationForClients();
 	}
 	
@@ -81,7 +82,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 			.accessTokenConverter(jwtAccessTokenConverter())
 			.tokenGranter(tokenGranter(endpoints));
 	}
-	
+
 	@Bean
 	public JwtAccessTokenConverter jwtAccessTokenConverter() {
 		JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
