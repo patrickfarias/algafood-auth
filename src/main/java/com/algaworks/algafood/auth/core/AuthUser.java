@@ -20,7 +20,7 @@ public class AuthUser extends User {
 	public AuthUser(Usuario usuario) {
 		super(usuario.getEmail(), usuario.getSenha(), Collections.emptyList());
 
-		//this.companyId = usuario.getId();
+		//this.companyId = usuario.getId(); // Lista de companies liberadas para esse user.
 		this.userId = usuario.getId();
 		this.fullName = usuario.getNome();
 	}
