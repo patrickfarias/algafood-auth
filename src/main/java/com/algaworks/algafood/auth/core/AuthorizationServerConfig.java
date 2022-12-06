@@ -38,7 +38,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 				.withClient("algafood-web")
 				.secret(passwordEncoder.encode("web123"))
 				.authorizedGrantTypes("password", "refresh_token")
-				.scopes("WRITE", "READ")
+				.scopes("WRITE", "READ", "CLICK")
 				.accessTokenValiditySeconds(6 * 60 * 60)// 6 horas
 				.refreshTokenValiditySeconds(60 * 24 * 60 * 60) // 60 dias
 			
