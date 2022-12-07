@@ -38,7 +38,23 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 				.withClient("algafood-web")
 				.secret(passwordEncoder.encode("web123"))
 				.authorizedGrantTypes("password", "refresh_token")
+				.scopes("WRITE", "READ", "SUPORTE_CLICK")
+				.accessTokenValiditySeconds(6 * 60 * 60)// 6 horas
+				.refreshTokenValiditySeconds(60 * 24 * 60 * 60) // 60 dias
+
+			.and()
+				.withClient("click-cli-desk")
+				.secret(passwordEncoder.encode("abc")) // Usar senha forte
+				.authorizedGrantTypes("password", "refresh_token")
 				.scopes("WRITE", "READ")
+				.accessTokenValiditySeconds(6 * 60 * 60)// 6 horas
+				.refreshTokenValiditySeconds(60 * 24 * 60 * 60) // 60 dias
+
+			.and()
+				.withClient("suporte-click")
+				.secret(passwordEncoder.encode("abc")) // Usar senha forte
+				.authorizedGrantTypes("password", "refresh_token")
+				.scopes("WRITE", "READ", "SUPORTE_CLICK")
 				.accessTokenValiditySeconds(6 * 60 * 60)// 6 horas
 				.refreshTokenValiditySeconds(60 * 24 * 60 * 60) // 60 dias
 			
